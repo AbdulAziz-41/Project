@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/style.css">
+    <link rel="Stylesheet" href="./Style/DrowDwon.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="./Script/Dropdwon.js"></script>
+    <script src="./Script/script.js"></script><link rel="Stylesheet" href="./Style/output.css" />
+    <title>Vertretung</title>
+    <script></script>
+</head>
+
+<body>
+    <div class="Panal_body">
+
+        <div class="sidebar">
+            <div class="sidbar_logo">
+                <img src="./Images/logoIcon.svg" alt="">
+                <img src="
+            ./Images/logotext.svg" alt="">
+
+            </div>
+            <div class="sideBar-nav">
+                <div class="sidebar-buttons">
+
+                    <a href="#" class="side_button_link">
+                        <div class="side_button">
+                            <img src="./Images/Home.svg" alt="">
+                            <div class="Side_button_content">
+                                Home
+                            </div>
+
+                        </div>
+                    </a>
+
+
+
+
+                    <a href="" class="side_button_link">
+                        <div class="side_button">
+                            <img src="./Images/vert.svg" alt="">
+                            <div class="Side_button_content">
+                                Vertretung
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="side_button_link">
+
+                        <div class="side_button">
+                            <img src="./Images/monitor.svg" alt="">
+                            <div class="Side_button_content">
+                                Monitoring
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-buttons">
+                    <a href="" class="side_button_link">
+                        <div class="side_button">
+                            <img src="./Images/setting.svg" alt="">
+                            <div class="Side_button_content">
+                                Einstellungen
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content_main_body">
+            <Header>
+                <div class="header">
+                    <div class="Position">
+                        <p>
+                            Aktuelle Position:
+                        </p>
+                        <span>Münchens</span>
+                    </div>
+                    <div class="header_Button">
+                        <a href="#" class="">Administrator</a>
+                    </div>
+                    <div class="header_dropDown">
+                        <p>Peter Bäumer</p>
+                        <img src="./Images/dwonarrow.svg" alt="" />
+                    </div>
+                </div>
+            </Header>
+            <div class="main_body">
+                <div class="content">
+                    <div class="card full-width-card">
+                        <div class="card-body">
+                            <div class="card-discription card-discription_button ">
+                                <div>
+
+                                    <h3 class="card-title">Vertretung</h3>
+                                    <p class="card-text">Hier erhalten Sie einen Überblick über die geplanten
+                                        Tätigkeiten in
+                                        der Ersatzleitstelle und die ungeplanten Vertretungen durch die
+                                        Ersatzleitstelle.
+                                    </p>
+                                </div>
+                                <div>
+                                    <a href="#" class="btn btn-gray" type="submit">
+                                        Anlegen
+                                        <img src="./Images/plusButton.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="Tbale_contanier">
+                                <div class="table_header">
+
+                                    <div class="table_cell">
+                                        <span>Aktivitäten</span>
+                                    </div>
+                                    <div class="table_cell">
+                                        <span>
+                                            <div class="table_cell">
+                                                <span>Leitstelle</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="table_cell">
+                                        <span>
+                                            <div class="table_cell">
+                                                <span>Status</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="table_body">
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            Keine Aktivitäten vorhanden
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll(".side_button_link");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default anchor action
+
+                    // Remove "active" class from all buttons and reset their icons
+                    buttons.forEach((btn) => {
+                        btn.classList.remove("active");
+                        const icon = btn.querySelector("img");
+                        // Assuming your naming convention is consistent, replace 'Active' with ''
+                        if (icon.src.includes("Active")) {
+                            icon.src = icon.src.replace("Active", "");
+                        }
+                    });
+
+                    // Add "active" class to clicked button
+                    this.classList.add("active");
+
+                    // Change the icon for the clicked button to its active state
+                    const icon = this.querySelector("img");
+                    const iconName = icon.src.split('/').pop(); // Get the filename of the icon
+                    if (!iconName.includes("Active")) {
+                        // Construct the new icon name assuming the active icon ends with 'Active.svg'
+                        const newIconName = iconName.replace(".svg", "Active.svg");
+                        icon.src = icon.src.replace(iconName, newIconName);
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
